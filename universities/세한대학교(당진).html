@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세한대학교(당진) 입시 현황</title>
+    <link rel="stylesheet" href="../assets/style.css?v=2">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body class="university-page">
+    <div class="header">
+        <div class="container">
+            <h1 class="title-with-icon">
+                <svg class="icon icon-building" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="7" width="18" height="14" rx="1"/>
+                    <rect x="7" y="3" width="10" height="4" rx="1"/>
+                    <rect x="7" y="11" width="2" height="2"/>
+                    <rect x="11" y="11" width="2" height="2"/>
+                    <rect x="15" y="11" width="2" height="2"/>
+                    <rect x="7" y="15" width="2" height="2"/>
+                    <rect x="11" y="15" width="2" height="2"/>
+                    <rect x="15" y="15" width="2" height="2"/>
+                </svg>
+                세한대학교(당진)
+            </h1>
+            <p>충남 • 총 19건 • 2개 전형</p>
+            <div class="website-link"><a href="https://www.adiga.kr/ucp/uvt/uni/univDetail.do?menuId=PCUVTINF2000&searchSyr=2026&searchUnvCodeAllYn=true&unvCd=0000092&sortNm=&sortOrder=true&unvLink=on" target="_blank" rel="noopener noreferrer">🌐 어디가 대학 페이지 바로가기</a></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="nav-breadcrumb">
+            <a href="../index.html">메인</a> > 
+            <a href="../regions/충남.html">충남</a> > 
+            <span>세한대학교(당진)</span>
+        </div>
+        
+        <div class="page-layout">
+            <aside class="side-nav">
+                <div class="side-nav-title">전형별 바로가기</div>
+                <div class="nav-links">
+                    <a href="#dept-compare" class="nav-link">모집단위 검색</a>
+                    <a href="#subtype-0" class="nav-link">학생부교과(일반학생전형) <span class="nav-count">(10)</span></a><a href="#subtype-1" class="nav-link">실기/실적(일반학생전형) <span class="nav-count">(9)</span></a>
+                </div>
+            </aside>
+            <main class="main-content">
+                
+        <section id="dept-compare" class="compare-section" style="margin-bottom: 24px;">
+            <h2 class="title-with-icon" style="margin-bottom: 12px; color: #2c3e50;">
+                <svg class="icon icon-clipboard" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="6" y="7" width="12" height="13" rx="2"/>
+                    <rect x="9" y="3" width="6" height="4" rx="1"/>
+                </svg>
+                모집단위 검색 (전체 전형)
+            </h2>
+            <div class="compare-controls">
+                <input id="compare-dept-input" class="sort-search" type="text" placeholder="모집단위 입력 (1개)" list="compare-dept-list" />
+                <datalist id="compare-dept-list"><option value="AI콘텐츠디자인학과"><option value="경찰행정학과"><option value="반려동물관리학과"><option value="웹툰애니메이션학과"><option value="전통연희학과"><option value="항공운항학과"><option value="항공정비학과"></datalist>
+                <div style="flex: 1 1 auto"></div>
+                <span style="color:#475569; font-size:0.9em;">등급</span>
+                <button id="compare-btn-all" class="grade-btn active" style="padding:6px 10px;">전교과</button>
+                <button id="compare-btn-conv" class="grade-btn" style="padding:6px 10px;">환산</button>
+                <button id="compare-apply" class="sort-reset" style="margin-left:8px;">적용</button>
+            </div>
+            <div id="compare-plots" style="display:grid; gap:14px; margin-top:10px;"></div>
+            <script>
+                window.deptCompareData = [{"dept": "항공운항학과", "subtype": "학생부교과(일반학생전형)", "result": "충원합격", "year": 2023, "conv_grade": 5.3, "all_subj_grade": 6.26, "quota": 23.0, "csat_req": ""}, {"dept": "웹툰애니메이션학과", "subtype": "실기/실적(일반학생전형)", "result": "충원합격", "year": 2023, "conv_grade": 5.9, "all_subj_grade": 7.25, "quota": 45.0, "csat_req": ""}, {"dept": "웹툰애니메이션학과", "subtype": "실기/실적(일반학생전형)", "result": "불합격", "year": 2023, "conv_grade": 5.7, "all_subj_grade": 6.68, "quota": 45.0, "csat_req": ""}, {"dept": "항공운항학과", "subtype": "학생부교과(일반학생전형)", "result": "합격", "year": 2023, "conv_grade": 2.4, "all_subj_grade": 3.26, "quota": 23.0, "csat_req": ""}, {"dept": "반려동물관리학과", "subtype": "학생부교과(일반학생전형)", "result": "충원합격", "year": 2023, "conv_grade": 6.2, "all_subj_grade": 7.27, "quota": 20.0, "csat_req": ""}, {"dept": "경찰행정학과", "subtype": "학생부교과(일반학생전형)", "result": "합격", "year": 2023, "conv_grade": 4.9, "all_subj_grade": 6.24, "quota": 25.0, "csat_req": ""}, {"dept": "항공정비학과", "subtype": "학생부교과(일반학생전형)", "result": "합격", "year": 2024, "conv_grade": 4.7, "all_subj_grade": 6.03, "quota": 44.0, "csat_req": ""}, {"dept": "전통연희학과", "subtype": "실기/실적(일반학생전형)", "result": "합격", "year": 2024, "conv_grade": 7.15, "all_subj_grade": 7.15, "quota": 15.0, "csat_req": ""}, {"dept": "항공운항학과", "subtype": "학생부교과(일반학생전형)", "result": "합격", "year": 2024, "conv_grade": 4.8, "all_subj_grade": 6.33, "quota": 26.0, "csat_req": ""}, {"dept": "항공정비학과", "subtype": "학생부교과(일반학생전형)", "result": "합격", "year": 2024, "conv_grade": 4.8, "all_subj_grade": 5.91, "quota": 44.0, "csat_req": ""}, {"dept": "웹툰애니메이션학과", "subtype": "실기/실적(일반학생전형)", "result": "충원합격", "year": 2024, "conv_grade": 6.46, "all_subj_grade": 6.46, "quota": 45.0, "csat_req": ""}, {"dept": "웹툰애니메이션학과", "subtype": "실기/실적(일반학생전형)", "result": "충원합격", "year": 2024, "conv_grade": 5.29, "all_subj_grade": 5.29, "quota": 45.0, "csat_req": ""}, {"dept": "웹툰애니메이션학과", "subtype": "실기/실적(일반학생전형)", "result": "합격", "year": 2024, "conv_grade": 5.42, "all_subj_grade": 5.42, "quota": 45.0, "csat_req": ""}, {"dept": "AI콘텐츠디자인학과", "subtype": "실기/실적(일반학생전형)", "result": "충원합격", "year": 2024, "conv_grade": 6.85, "all_subj_grade": 6.85, "quota": 27.0, "csat_req": ""}, {"dept": "웹툰애니메이션학과", "subtype": "실기/실적(일반학생전형)", "result": "불합격", "year": 2024, "conv_grade": 6.6, "all_subj_grade": 6.6, "quota": 45.0, "csat_req": ""}, {"dept": "웹툰애니메이션학과", "subtype": "실기/실적(일반학생전형)", "result": "충원합격", "year": 2024, "conv_grade": 6.89, "all_subj_grade": 6.89, "quota": 45.0, "csat_req": ""}, {"dept": "항공운항학과", "subtype": "학생부교과(일반학생전형)", "result": "합격", "year": 2025, "conv_grade": 2.0, "all_subj_grade": 3.05, "quota": 30.0, "csat_req": ""}, {"dept": "항공정비학과", "subtype": "학생부교과(일반학생전형)", "result": "합격", "year": 2025, "conv_grade": 4.4, "all_subj_grade": 6.19, "quota": 48.0, "csat_req": ""}, {"dept": "항공운항학과", "subtype": "학생부교과(일반학생전형)", "result": "합격", "year": 2025, "conv_grade": 3.4, "all_subj_grade": 4.91, "quota": 30.0, "csat_req": ""}];
+                window.deptCompareYears = [2023, 2024, 2025];
+            </script>
+        </section>
+        
+                <section style="margin: 10px 0 40px 0;">
+                    <h2 class="title-with-icon" style="margin-bottom: 20px; color: #2c3e50;">
+                        <svg class="icon icon-clipboard" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="6" y="7" width="12" height="13" rx="2"/>
+                            <rect x="9" y="3" width="6" height="4" rx="1"/>
+                            <line x1="9" y1="12" x2="15" y2="12"/>
+                            <line x1="9" y1="16" x2="15" y2="16"/>
+                        </svg>
+                        전형별 현황
+                    </h2>
+                    <div style="display: grid; gap: 15px;">
+                        
+            <div id="subtype-0" class="subtype-section">
+                <h4>학생부교과(일반학생전형)</h4>
+                <div class="subtype-stats">
+                    <span>총 10건</span>
+                    <span>합격 10명</span>
+                    <span>합격률 100.0%</span>
+                </div>
+                
+                <!-- 탭 컨트롤 -->
+                <div class="view-tabs">
+                    <button onclick="switchView(10, 'total')" 
+                            id="tab-total-10" class="tab-btn active">전형 전체</button>
+                    <button onclick="switchView(10, 'dept')" 
+                            id="tab-dept-10" class="tab-btn">모집단위별</button>
+                </div>
+                
+                <!-- 전형 전체 보기 -->
+                
+                <div id="total-view-10" class="view-content">
+                    <div class="plot-container">
+                        <div class="plot-controls" style="text-align:center; margin-bottom:10px;">
+                    <button id="btn-bulk-all-group-10" class="grade-btn active" onclick="switchGroupGrade([10,11,12], 'all_subj', 'group-10')">전교과</button>
+                    <button id="btn-bulk-conv-group-10" class="grade-btn" onclick="switchGroupGrade([10,11,12], 'conv', 'group-10')">환산</button>
+                </div>
+                        <div class="three-col">
+            
+                            <div class="mini-col"> 
+                                <div style="font-weight:600; margin-bottom:6px;">2023년</div>
+                                <div id="plot-10" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["10"] = {
+        convTraces: [ {
+                y: [2.4, 4.9], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uacbd\ucc30\ud589\uc815\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [5.3, 6.2], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ubc18\ub824\ub3d9\ubb3c\uad00\ub9ac\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ],
+        allSubjTraces: [ {
+                y: [3.26, 6.24], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uacbd\ucc30\ud589\uc815\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.26, 7.27], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ubc18\ub824\ub3d9\ubb3c\uad00\ub9ac\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ]
+    };
+    </script>
+    
+                                <div style="font-size:12px; color:#555; margin-bottom:6px; text-align:center;"></div>
+                                <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 4명</div><div class="stat-item stat-pass">합격: 4명 (100.0%)</div></div></div>
+                                <div id="quartile-all-10" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>3.26</td><td>4.00</td><td>4.75</td><td>5.50</td><td>6.24</td></tr><tr><td>충원합격</td><td>6.26</td><td>6.51</td><td>6.76</td><td>7.02</td><td>7.27</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                <div id="quartile-conv-10" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>2.40</td><td>3.02</td><td>3.65</td><td>4.28</td><td>4.90</td></tr><tr><td>충원합격</td><td>5.30</td><td>5.53</td><td>5.75</td><td>5.97</td><td>6.20</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                            </div>
+                        
+                            <div class="mini-col"> 
+                                <div style="font-weight:600; margin-bottom:6px;">2024년</div>
+                                <div id="plot-11" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["11"] = {
+        convTraces: [ {
+                y: [4.7, 4.8, 4.8], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ],
+        allSubjTraces: [ {
+                y: [6.03, 6.33, 5.91], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ]
+    };
+    </script>
+    
+                                <div style="font-size:12px; color:#555; margin-bottom:6px; text-align:center;"></div>
+                                <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 3명</div><div class="stat-item stat-pass">합격: 3명 (100.0%)</div></div></div>
+                                <div id="quartile-all-11" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>5.91</td><td>5.97</td><td>6.03</td><td>6.18</td><td>6.33</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                <div id="quartile-conv-11" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>4.70</td><td>4.75</td><td>4.80</td><td>4.80</td><td>4.80</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                            </div>
+                        
+                            <div class="mini-col"> 
+                                <div style="font-weight:600; margin-bottom:6px;">2025년</div>
+                                <div id="plot-12" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["12"] = {
+        convTraces: [ {
+                y: [2.0, 4.4, 3.4], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ],
+        allSubjTraces: [ {
+                y: [3.05, 6.19, 4.91], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ]
+    };
+    </script>
+    
+                                <div style="font-size:12px; color:#555; margin-bottom:6px; text-align:center;"></div>
+                                <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 3명</div><div class="stat-item stat-pass">합격: 3명 (100.0%)</div></div></div>
+                                <div id="quartile-all-12" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>3.05</td><td>3.98</td><td>4.91</td><td>5.55</td><td>6.19</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                <div id="quartile-conv-12" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>2.00</td><td>2.70</td><td>3.40</td><td>3.90</td><td>4.40</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 모집단위별 보기 -->
+                <div id="dept-view-10" class="view-content" style="display: none;">
+                    <div class="dept-sortbar" id="dept-sortbar-10">
+                        <div class="row">
+                            <label>정렬 기준</label>
+                            <select id="dept-sort-key-10" class="sort-select">
+                                <option value="name">모집단위명 (가나다)</option>
+                                <option value="total">총 지원자수</option>
+                                <option value="pass">합격(충원포함)</option>
+                                <option value="fail">불합격</option>
+                                <option value="passrate">합격률</option>
+                                <option value="allmean">전교과 평균</option>
+                                <option value="convmean">환산 평균</option>
+                            </select>
+                            <button id="dept-sort-dir-10" class="sort-dir" data-dir="desc" title="정렬 방향">내림차순</button>
+                            <label style="margin-left:10px;">연도</label>
+                            <select id="dept-year-mode-10" class="sort-select">
+                                <option value="overall">전체</option>
+                                <option value="recent">최근연도</option>
+                            </select>
+                            <label style="margin-left:10px;">Top</label>
+                            <select id="dept-topn-10" class="sort-select">
+                                <option value="all">전체</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                            <input id="dept-search-10" class="sort-search" type="text" placeholder="모집단위 검색" list="dept-list-10" />
+                            <datalist id="dept-list-10">
+                                <option value="AI콘텐츠디자인학과"><option value="경찰행정학과"><option value="반려동물관리학과"><option value="웹툰애니메이션학과"><option value="전통연희학과"><option value="항공운항학과"><option value="항공정비학과">
+                            </datalist>
+                            <button id="dept-reset-10" class="sort-reset">초기화</button>
+                        </div>
+                    </div>
+                    <div class="dept-sections" id="dept-sections-10">
+                        
+                    <div class="dept-section single-record">
+                        <h5>경찰행정학과 (1건)</h5>
+                        <div class="single-record-card" style="background: #d4edda; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <div class="record-info">
+                                <span class="result-badge">합격</span>
+                                <span class="grade-info">환산등급: 4.90</span>
+                                <span class="grade-info">전교과등급: 6.24</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dept-section single-record">
+                        <h5>반려동물관리학과 (1건)</h5>
+                        <div class="single-record-card" style="background: #d1ecf1; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <div class="record-info">
+                                <span class="result-badge">충원합격</span>
+                                <span class="grade-info">환산등급: 6.20</span>
+                                <span class="grade-info">전교과등급: 7.27</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dept-section" data-dept="항공운항학과" data-total="5" data-pass="5" data-fail="0" data-passrate="100.0000" data-allmean="4.7620" data-convmean="3.5800" data-years='{"2023": {"total": 2, "pass": 2, "fail": 0, "passrate": 100.0, "allmean": 4.76, "convmean": 3.8499999999999996}, "2024": {"total": 1, "pass": 1, "fail": 0, "passrate": 100.0, "allmean": 6.33, "convmean": 4.8}, "2025": {"total": 2, "pass": 2, "fail": 0, "passrate": 100.0, "allmean": 3.98, "convmean": 2.7}}'>
+                        <h5>항공운항학과 (5건)</h5>
+                        <div class="dept-stats">
+                            <span>합격 5명</span>
+                            <span>합격률 100.0%</span>
+                        </div>
+                        
+                                <div class="plot-controls" style="text-align:center; margin-bottom:10px;">
+                                    <button id="btn-bulk-all-deptgrp-4" class="grade-btn active" onclick="switchGroupGrade([4,5,6], 'all_subj', 'deptgrp-4')">전교과</button>
+                                    <button id="btn-bulk-conv-deptgrp-4" class="grade-btn" onclick="switchGroupGrade([4,5,6], 'conv', 'deptgrp-4')">환산</button>
+                                </div>
+                            
+                        <div class="three-col-fixed3">
+                                    <div class="mini-col">
+                                        <div style="font-weight:600; margin-bottom:6px;">2023년(모집인원:23명)</div>
+                                        <div id="plot-4" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                        
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["4"] = {
+        convTraces: [ {
+                y: [2.4], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [5.3], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ],
+        allSubjTraces: [ {
+                y: [3.26], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.26], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ]
+    };
+    </script>
+    
+                                        <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 2명</div><div class="stat-item stat-pass">합격: 2명 (100.0%)</div></div></div>
+                                        <div id="quartile-all-4" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>3.26</td><td>3.26</td><td>3.26</td><td>3.26</td><td>3.26</td></tr><tr><td>충원합격</td><td>6.26</td><td>6.26</td><td>6.26</td><td>6.26</td><td>6.26</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                        <div id="quartile-conv-4" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>2.40</td><td>2.40</td><td>2.40</td><td>2.40</td><td>2.40</td></tr><tr><td>충원합격</td><td>5.30</td><td>5.30</td><td>5.30</td><td>5.30</td><td>5.30</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                    </div>
+                                
+                                    <div class="mini-col">
+                                        <div style="font-weight:600; margin-bottom:6px;">2024년(모집인원:26명)</div>
+                                        <div id="plot-5" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                        
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["5"] = {
+        convTraces: [ {
+                y: [4.8], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ],
+        allSubjTraces: [ {
+                y: [6.33], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ]
+    };
+    </script>
+    
+                                        <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 1명</div><div class="stat-item stat-pass">합격: 1명 (100.0%)</div></div></div>
+                                        <div id="quartile-all-5" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>6.33</td><td>6.33</td><td>6.33</td><td>6.33</td><td>6.33</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                        <div id="quartile-conv-5" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>4.80</td><td>4.80</td><td>4.80</td><td>4.80</td><td>4.80</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                    </div>
+                                
+                                    <div class="mini-col">
+                                        <div style="font-weight:600; margin-bottom:6px;">2025년(모집인원:30명)</div>
+                                        <div id="plot-6" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                        
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["6"] = {
+        convTraces: [ {
+                y: [2.0, 3.4], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ],
+        allSubjTraces: [ {
+                y: [3.05, 4.91], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc6b4\ud56d\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ]
+    };
+    </script>
+    
+                                        <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 2명</div><div class="stat-item stat-pass">합격: 2명 (100.0%)</div></div></div>
+                                        <div id="quartile-all-6" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>3.05</td><td>3.51</td><td>3.98</td><td>4.45</td><td>4.91</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                        <div id="quartile-conv-6" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>2.00</td><td>2.35</td><td>2.70</td><td>3.05</td><td>3.40</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                    </div>
+                                </div>
+                    </div>
+                            
+                    <div class="dept-section" data-dept="항공정비학과" data-total="3" data-pass="3" data-fail="0" data-passrate="100.0000" data-allmean="6.0433" data-convmean="4.6333" data-years='{"2024": {"total": 2, "pass": 2, "fail": 0, "passrate": 100.0, "allmean": 5.970000000000001, "convmean": 4.75}, "2025": {"total": 1, "pass": 1, "fail": 0, "passrate": 100.0, "allmean": 6.19, "convmean": 4.4}}'>
+                        <h5>항공정비학과 (3건)</h5>
+                        <div class="dept-stats">
+                            <span>합격 3명</span>
+                            <span>합격률 100.0%</span>
+                        </div>
+                        
+                                <div class="plot-controls" style="text-align:center; margin-bottom:10px;">
+                                    <button id="btn-bulk-all-deptgrp-8" class="grade-btn active" onclick="switchGroupGrade([8,9], 'all_subj', 'deptgrp-8')">전교과</button>
+                                    <button id="btn-bulk-conv-deptgrp-8" class="grade-btn" onclick="switchGroupGrade([8,9], 'conv', 'deptgrp-8')">환산</button>
+                                </div>
+                            
+                        <div class="three-col-fixed3">
+                                        <div class="mini-col">
+
+                                            <div style="font-weight:600; margin-bottom:6px;">2023년</div>
+
+                                            <div class="plot-chart" style="height: 300px; margin: 10px 0; display:flex; align-items:center; justify-content:center; color:#777; background:#fff; border:1px dashed #e5e7eb;">데이터 없음</div>
+
+                                        </div>
+                                    
+                                    <div class="mini-col">
+                                        <div style="font-weight:600; margin-bottom:6px;">2024년(모집인원:44명)</div>
+                                        <div id="plot-8" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                        
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["8"] = {
+        convTraces: [ {
+                y: [4.7, 4.8], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ],
+        allSubjTraces: [ {
+                y: [6.03, 5.91], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ]
+    };
+    </script>
+    
+                                        <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 2명</div><div class="stat-item stat-pass">합격: 2명 (100.0%)</div></div></div>
+                                        <div id="quartile-all-8" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>5.91</td><td>5.94</td><td>5.97</td><td>6.00</td><td>6.03</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                        <div id="quartile-conv-8" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>4.70</td><td>4.72</td><td>4.75</td><td>4.78</td><td>4.80</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                    </div>
+                                
+                                    <div class="mini-col">
+                                        <div style="font-weight:600; margin-bottom:6px;">2025년(모집인원:48명)</div>
+                                        <div id="plot-9" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                        
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["9"] = {
+        convTraces: [ {
+                y: [4.4], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ],
+        allSubjTraces: [ {
+                y: [6.19], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\ud56d\uacf5\uc815\ube44\ud559\uacfc", "\ud559\uc0dd\ubd80\uad50\uacfc(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [], type: 'box', name: '충원합격', boxpoints: false,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                hoverinfo: 'skip'
+            }, {
+                y: [], type: 'box', name: '불합격', boxpoints: false,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                hoverinfo: 'skip'
+            } ]
+    };
+    </script>
+    
+                                        <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 1명</div><div class="stat-item stat-pass">합격: 1명 (100.0%)</div></div></div>
+                                        <div id="quartile-all-9" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>6.19</td><td>6.19</td><td>6.19</td><td>6.19</td><td>6.19</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                        <div id="quartile-conv-9" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>4.40</td><td>4.40</td><td>4.40</td><td>4.40</td><td>4.40</td></tr><tr><td>충원합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>불합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr></tbody></table></div>
+                                    </div>
+                                </div>
+                    </div>
+                            
+                    </div>
+                </div>
+            </div>
+            
+            <div id="subtype-1" class="subtype-section">
+                <h4>실기/실적(일반학생전형)</h4>
+                <div class="subtype-stats">
+                    <span>총 9건</span>
+                    <span>합격 7명</span>
+                    <span>합격률 77.8%</span>
+                </div>
+                
+                <!-- 탭 컨트롤 -->
+                <div class="view-tabs">
+                    <button onclick="switchView(28, 'total')" 
+                            id="tab-total-28" class="tab-btn active">전형 전체</button>
+                    <button onclick="switchView(28, 'dept')" 
+                            id="tab-dept-28" class="tab-btn">모집단위별</button>
+                </div>
+                
+                <!-- 전형 전체 보기 -->
+                
+                <div id="total-view-28" class="view-content">
+                    <div class="plot-container">
+                        <div class="plot-controls" style="text-align:center; margin-bottom:10px;">
+                    <button id="btn-bulk-all-group-28" class="grade-btn active" onclick="switchGroupGrade([28,29], 'all_subj', 'group-28')">전교과</button>
+                    <button id="btn-bulk-conv-group-28" class="grade-btn" onclick="switchGroupGrade([28,29], 'conv', 'group-28')">환산</button>
+                </div>
+                        <div class="three-col">
+            
+                            <div class="mini-col"> 
+                                <div style="font-weight:600; margin-bottom:6px;">2023년</div>
+                                <div id="plot-28" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["28"] = {
+        convTraces: [ {
+                y: [], type: 'box', name: '합격', boxpoints: false,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                hoverinfo: 'skip'
+            }, {
+                y: [5.9], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [5.7], type: 'box', name: '불합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            } ],
+        allSubjTraces: [ {
+                y: [], type: 'box', name: '합격', boxpoints: false,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                hoverinfo: 'skip'
+            }, {
+                y: [7.25], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.68], type: 'box', name: '불합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            } ]
+    };
+    </script>
+    
+                                <div style="font-size:12px; color:#555; margin-bottom:6px; text-align:center;"></div>
+                                <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 2명</div><div class="stat-item stat-pass">합격: 1명 (50.0%)</div><div class="stat-item stat-fail">불합격: 1명 (50.0%)</div></div></div>
+                                <div id="quartile-all-28" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>충원합격</td><td>7.25</td><td>7.25</td><td>7.25</td><td>7.25</td><td>7.25</td></tr><tr><td>불합격</td><td>6.68</td><td>6.68</td><td>6.68</td><td>6.68</td><td>6.68</td></tr></tbody></table></div>
+                                <div id="quartile-conv-28" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>충원합격</td><td>5.90</td><td>5.90</td><td>5.90</td><td>5.90</td><td>5.90</td></tr><tr><td>불합격</td><td>5.70</td><td>5.70</td><td>5.70</td><td>5.70</td><td>5.70</td></tr></tbody></table></div>
+                            </div>
+                        
+                            <div class="mini-col"> 
+                                <div style="font-weight:600; margin-bottom:6px;">2024년</div>
+                                <div id="plot-29" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["29"] = {
+        convTraces: [ {
+                y: [7.15, 5.42], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\uc804\ud1b5\uc5f0\ud76c\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.46, 5.29, 6.85, 6.89], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["AI\ucf58\ud150\uce20\ub514\uc790\uc778\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.6], type: 'box', name: '불합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            } ],
+        allSubjTraces: [ {
+                y: [7.15, 5.42], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\uc804\ud1b5\uc5f0\ud76c\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.46, 5.29, 6.85, 6.89], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["AI\ucf58\ud150\uce20\ub514\uc790\uc778\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.6], type: 'box', name: '불합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            } ]
+    };
+    </script>
+    
+                                <div style="font-size:12px; color:#555; margin-bottom:6px; text-align:center;"></div>
+                                <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 7명</div><div class="stat-item stat-pass">합격: 6명 (85.7%)</div><div class="stat-item stat-fail">불합격: 1명 (14.3%)</div></div></div>
+                                <div id="quartile-all-29" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>5.42</td><td>5.85</td><td>6.29</td><td>6.72</td><td>7.15</td></tr><tr><td>충원합격</td><td>5.29</td><td>6.17</td><td>6.65</td><td>6.86</td><td>6.89</td></tr><tr><td>불합격</td><td>6.60</td><td>6.60</td><td>6.60</td><td>6.60</td><td>6.60</td></tr></tbody></table></div>
+                                <div id="quartile-conv-29" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>5.42</td><td>5.85</td><td>6.29</td><td>6.72</td><td>7.15</td></tr><tr><td>충원합격</td><td>5.29</td><td>6.17</td><td>6.65</td><td>6.86</td><td>6.89</td></tr><tr><td>불합격</td><td>6.60</td><td>6.60</td><td>6.60</td><td>6.60</td><td>6.60</td></tr></tbody></table></div>
+                            </div>
+                        
+                            <div class="mini-col"> 
+                                <div style="font-weight:600; margin-bottom:6px;">2025년</div>
+                                <div class="plot-chart" style="height: 300px; margin: 10px 0; display:flex; align-items:center; justify-content:center; color:#777; background:#fff; border:1px dashed #e5e7eb;">데이터 없음</div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 모집단위별 보기 -->
+                <div id="dept-view-28" class="view-content" style="display: none;">
+                    <div class="dept-sortbar" id="dept-sortbar-28">
+                        <div class="row">
+                            <label>정렬 기준</label>
+                            <select id="dept-sort-key-28" class="sort-select">
+                                <option value="name">모집단위명 (가나다)</option>
+                                <option value="total">총 지원자수</option>
+                                <option value="pass">합격(충원포함)</option>
+                                <option value="fail">불합격</option>
+                                <option value="passrate">합격률</option>
+                                <option value="allmean">전교과 평균</option>
+                                <option value="convmean">환산 평균</option>
+                            </select>
+                            <button id="dept-sort-dir-28" class="sort-dir" data-dir="desc" title="정렬 방향">내림차순</button>
+                            <label style="margin-left:10px;">연도</label>
+                            <select id="dept-year-mode-28" class="sort-select">
+                                <option value="overall">전체</option>
+                                <option value="recent">최근연도</option>
+                            </select>
+                            <label style="margin-left:10px;">Top</label>
+                            <select id="dept-topn-28" class="sort-select">
+                                <option value="all">전체</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                            <input id="dept-search-28" class="sort-search" type="text" placeholder="모집단위 검색" list="dept-list-28" />
+                            <datalist id="dept-list-28">
+                                <option value="AI콘텐츠디자인학과"><option value="경찰행정학과"><option value="반려동물관리학과"><option value="웹툰애니메이션학과"><option value="전통연희학과"><option value="항공운항학과"><option value="항공정비학과">
+                            </datalist>
+                            <button id="dept-reset-28" class="sort-reset">초기화</button>
+                        </div>
+                    </div>
+                    <div class="dept-sections" id="dept-sections-28">
+                        
+                    <div class="dept-section single-record">
+                        <h5>AI콘텐츠디자인학과 (1건)</h5>
+                        <div class="single-record-card" style="background: #d1ecf1; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <div class="record-info">
+                                <span class="result-badge">충원합격</span>
+                                <span class="grade-info">환산등급: 6.85</span>
+                                <span class="grade-info">전교과등급: 6.85</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dept-section" data-dept="웹툰애니메이션학과" data-total="7" data-pass="5" data-fail="2" data-passrate="71.4286" data-allmean="6.3700" data-convmean="6.0371" data-years='{"2023": {"total": 2, "pass": 1, "fail": 1, "passrate": 50.0, "allmean": 6.965, "convmean": 5.800000000000001}, "2024": {"total": 5, "pass": 4, "fail": 1, "passrate": 80.0, "allmean": 6.132000000000001, "convmean": 6.132000000000001}}'>
+                        <h5>웹툰애니메이션학과 (7건)</h5>
+                        <div class="dept-stats">
+                            <span>합격 5명</span>
+                            <span>합격률 71.4%</span>
+                        </div>
+                        
+                                <div class="plot-controls" style="text-align:center; margin-bottom:10px;">
+                                    <button id="btn-bulk-all-deptgrp-25" class="grade-btn active" onclick="switchGroupGrade([25,26], 'all_subj', 'deptgrp-25')">전교과</button>
+                                    <button id="btn-bulk-conv-deptgrp-25" class="grade-btn" onclick="switchGroupGrade([25,26], 'conv', 'deptgrp-25')">환산</button>
+                                </div>
+                            
+                        <div class="three-col-fixed3">
+                                    <div class="mini-col">
+                                        <div style="font-weight:600; margin-bottom:6px;">2023년(모집인원:45명)</div>
+                                        <div id="plot-25" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                        
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["25"] = {
+        convTraces: [ {
+                y: [], type: 'box', name: '합격', boxpoints: false,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                hoverinfo: 'skip'
+            }, {
+                y: [5.9], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [5.7], type: 'box', name: '불합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            } ],
+        allSubjTraces: [ {
+                y: [], type: 'box', name: '합격', boxpoints: false,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                hoverinfo: 'skip'
+            }, {
+                y: [7.25], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.68], type: 'box', name: '불합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            } ]
+    };
+    </script>
+    
+                                        <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 2명</div><div class="stat-item stat-pass">합격: 1명 (50.0%)</div><div class="stat-item stat-fail">불합격: 1명 (50.0%)</div></div></div>
+                                        <div id="quartile-all-25" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>충원합격</td><td>7.25</td><td>7.25</td><td>7.25</td><td>7.25</td><td>7.25</td></tr><tr><td>불합격</td><td>6.68</td><td>6.68</td><td>6.68</td><td>6.68</td><td>6.68</td></tr></tbody></table></div>
+                                        <div id="quartile-conv-25" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td colspan='5' style='text-align:center'>데이터 없음</td></tr><tr><td>충원합격</td><td>5.90</td><td>5.90</td><td>5.90</td><td>5.90</td><td>5.90</td></tr><tr><td>불합격</td><td>5.70</td><td>5.70</td><td>5.70</td><td>5.70</td><td>5.70</td></tr></tbody></table></div>
+                                    </div>
+                                
+                                    <div class="mini-col">
+                                        <div style="font-weight:600; margin-bottom:6px;">2024년(모집인원:45명)</div>
+                                        <div id="plot-26" class="plot-chart" style="height: 300px; margin: 10px 0;"></div>
+                                        
+    <script>
+    if (!window.plotsData) window.plotsData = {};
+    window.plotsData["26"] = {
+        convTraces: [ {
+                y: [5.42], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.46, 5.29, 6.89], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.6], type: 'box', name: '불합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '환산등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            } ],
+        allSubjTraces: [ {
+                y: [5.42], type: 'box', name: '합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(51, 102, 204, 0.3)' },
+                line: { color: '#3366CC' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.46, 5.29, 6.89], type: 'box', name: '충원합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(16, 150, 24, 0.3)' },
+                line: { color: '#109618' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"], ["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            }, {
+                y: [6.6], type: 'box', name: '불합격', boxpoints: 'outliers', jitter: 0.5, pointpos: 0,
+                marker: { color: 'rgba(220, 57, 18, 0.3)' },
+                line: { color: '#DC3912' },
+                customdata: [["\uc6f9\ud230\uc560\ub2c8\uba54\uc774\uc158\ud559\uacfc", "\uc2e4\uae30/\uc2e4\uc801(\uc77c\ubc18\ud559\uc0dd\uc804\ud615)", "\uc138\ud55c\ub300\ud559\uad50(\ub2f9\uc9c4)"]],
+                hovertemplate: '전교과등급: %{y}<br>대학: %{customdata[2]}<br>모집단위: %{customdata[0]}<br>세부유형: %{customdata[1]}<extra></extra>'
+            } ]
+    };
+    </script>
+    
+                                        <div class="stats-grid"><div class="stats-grid"><div class="stat-item">총 지원: 5명</div><div class="stat-item stat-pass">합격: 4명 (80.0%)</div><div class="stat-item stat-fail">불합격: 1명 (20.0%)</div></div></div>
+                                        <div id="quartile-all-26" style="margin-top:8px;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>5.42</td><td>5.42</td><td>5.42</td><td>5.42</td><td>5.42</td></tr><tr><td>충원합격</td><td>5.29</td><td>5.88</td><td>6.46</td><td>6.67</td><td>6.89</td></tr><tr><td>불합격</td><td>6.60</td><td>6.60</td><td>6.60</td><td>6.60</td><td>6.60</td></tr></tbody></table></div>
+                                        <div id="quartile-conv-26" style="margin-top:8px; display:none;"><table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody><tr><td>합격</td><td>5.42</td><td>5.42</td><td>5.42</td><td>5.42</td><td>5.42</td></tr><tr><td>충원합격</td><td>5.29</td><td>5.88</td><td>6.46</td><td>6.67</td><td>6.89</td></tr><tr><td>불합격</td><td>6.60</td><td>6.60</td><td>6.60</td><td>6.60</td><td>6.60</td></tr></tbody></table></div>
+                                    </div>
+                                
+                                        <div class="mini-col">
+
+                                            <div style="font-weight:600; margin-bottom:6px;">2025년</div>
+
+                                            <div class="plot-chart" style="height: 300px; margin: 10px 0; display:flex; align-items:center; justify-content:center; color:#777; background:#fff; border:1px dashed #e5e7eb;">데이터 없음</div>
+
+                                        </div>
+                                    </div>
+                    </div>
+                            
+                    <div class="dept-section single-record">
+                        <h5>전통연희학과 (1건)</h5>
+                        <div class="single-record-card" style="background: #d4edda; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <div class="record-info">
+                                <span class="result-badge">합격</span>
+                                <span class="grade-info">환산등급: 7.15</span>
+                                <span class="grade-info">전교과등급: 7.15</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+            
+                    </div>
+                </section>
+            </main>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <button onclick="goBack()" 
+                    style="background: #95a5a6; color: white; border: none; padding: 12px 25px; 
+                           border-radius: 25px; cursor: pointer; margin-right: 15px;">
+                ← 뒤로가기
+            </button>
+            <button onclick="location.href='../index.html'" 
+                    style="background: #667eea; color: white; border: none; padding: 12px 25px; 
+                           border-radius: 25px; cursor: pointer;">
+                메인으로
+            </button>
+        </div>
+    </div>
+    
+    <script src="../assets/common.js?v=2"></script>
+</body>
+</html>

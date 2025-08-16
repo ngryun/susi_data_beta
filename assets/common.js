@@ -854,21 +854,40 @@
             });
         }
         
-        // 모바일에서 차트 크기 조정
+        // 모바일에서 차트 크기 조정 (개선된 버전)
         function adjustChartsForMobile() {
             if (window.innerWidth <= 768) {
                 const charts = document.querySelectorAll('.plot-chart');
                 charts.forEach(chart => {
-                    chart.style.height = '250px';
-                    // 차트가 Plotly 차트인 경우 리사이즈
-                    if (chart.id && window.Plotly) {
-                        setTimeout(() => {
-                            try {
-                                window.Plotly.Plots.resize(chart.id);
-                            } catch (e) {
-                                console.log('Chart resize failed:', e);
-                            }
-                        }, 100);
+                    // Plotly 차트가 아닌 경우에만 수동으로 높이 설정
+                    const isPlotlyChart = chart.id && chart.id.startsWith('plot-') && window.Plotly;
+                    
+                    if (!isPlotlyChart) {
+                        // Chart.js나 다른 차트들만 수동 크기 조정
+                        chart.style.height = window.innerWidth <= 480 ? '200px' : '250px';
+                    } else {
+                        // Plotly 차트는 CSS가 처리하도록 함
+                        // 단지 컨테이너 크기만 확인
+                        if (chart.offsetWidth > window.innerWidth - 40) {
+                            chart.style.width = '100%';
+                        }
+                        
+                        // Plotly 차트가 이미 초기화된 경우에만 리사이즈
+                        // 리사이즈 무한루프 방지를 위해 조건부 실행
+                        if (window.Plotly && chart._fullLayout) {
+                            setTimeout(() => {
+                                try {
+                                    // relayout을 사용하여 차트 크기 고정
+                                    window.Plotly.relayout(chart.id, {
+                                        'autosize': false,
+                                        'width': chart.offsetWidth,
+                                        'height': window.innerWidth <= 480 ? 200 : 250
+                                    });
+                                } catch (e) {
+                                    console.log('Plotly relayout failed:', e);
+                                }
+                            }, 200);
+                        }
                     }
                 });
             }
@@ -960,13 +979,29 @@
             initMobileOptimizations();
         }
         
-        // 리사이즈 이벤트 처리
+        // 리사이즈 이벤트 처리 (개선된 버전)
         let resizeTimeout;
+        let lastResizeTime = 0;
+        
         window.addEventListener('resize', function() {
+            const currentTime = Date.now();
+            
+            // 너무 빈번한 리사이즈 이벤트 무시 (200ms 이내)
+            if (currentTime - lastResizeTime < 200) {
+                return;
+            }
+            
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                adjustChartsForMobile();
-                addTableScrollHints();
-            }, 250);
+                lastResizeTime = Date.now();
+                
+                // 실제 크기가 변경된 경우에만 처리
+                const currentWidth = window.innerWidth;
+                if (Math.abs(currentWidth - (window.lastWidth || currentWidth)) > 50) {
+                    window.lastWidth = currentWidth;
+                    adjustChartsForMobile();
+                    addTableScrollHints();
+                }
+            }, 300);
         });
         
