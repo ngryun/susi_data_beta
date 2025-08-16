@@ -190,4 +190,245 @@
             .dept-stats { flex-direction: column; gap: 5px; }
             .record-info { flex-direction: column; align-items: flex-start; gap: 8px; }
         }
+
+        /* 추가 모바일 최적화 CSS */
+        @media (max-width: 768px) {
+            /* 컨테이너 패딩 조정 */
+            .container { padding: 10px; }
+            
+            /* 헤더 최적화 */
+            .header { padding: 15px 0; }
+            .header h1 { font-size: 1.8em; line-height: 1.2; }
+            .header p { font-size: 12px; }
+            
+            /* 네비게이션 반응형 */
+            .nav-breadcrumb { 
+                padding: 10px; 
+                font-size: 14px; 
+                word-break: break-all;
+            }
+            
+            /* 페이지 레이아웃 모바일용 */
+            .page-layout { 
+                flex-direction: column; 
+                gap: 15px; 
+            }
+            .side-nav { 
+                flex: none; 
+                position: static; 
+                max-height: 200px;
+                order: 2; /* 메인 콘텐츠 아래로 이동 */
+            }
+            .side-nav-title { font-size: 14px; }
+            .side-nav .nav-link { 
+                padding: 6px 8px; 
+                font-size: 13px; 
+            }
+            .main-content { order: 1; }
+            
+            /* 요약 카드 그리드 */
+            .summary-grid { 
+                grid-template-columns: 1fr; 
+                gap: 15px; 
+                margin: 20px 0; 
+            }
+            .summary-card { 
+                padding: 20px; 
+                text-align: center;
+            }
+            .summary-card h3 { font-size: 1.1em; margin-bottom: 10px; }
+            .stat-number { font-size: 1.8em; }
+            .stat-label { font-size: 13px; }
+            
+            /* 테이블 반응형 */
+            .data-table { 
+                font-size: 13px; 
+                width: 100%;
+                overflow-x: auto;
+                display: block;
+                white-space: nowrap;
+            }
+            .data-table thead,
+            .data-table tbody,
+            .data-table tr { 
+                display: block; 
+            }
+            .data-table td,
+            .data-table th { 
+                display: inline-block; 
+                width: 100px; 
+                text-align: center; 
+                padding: 8px 4px;
+                border: 1px solid #ddd;
+            }
+            .data-table td:first-child,
+            .data-table th:first-child { 
+                width: 120px; 
+                font-weight: bold;
+            }
+            
+            /* 차트 영역 모바일 최적화 */
+            .plot-chart { 
+                height: 250px !important; 
+                margin: 8px 0 !important; 
+            }
+            .plot-container { margin: 10px 0; }
+            
+            /* 3열 레이아웃을 1열로 변경 */
+            .three-col,
+            .three-col-fixed3 { 
+                display: block !important;
+                gap: 15px;
+            }
+            .three-col > *,
+            .three-col-fixed3 > * { 
+                margin-bottom: 15px; 
+            }
+            
+            /* 미니 컬럼 레이아웃 조정 */
+            .mini-col { 
+                margin-bottom: 20px; 
+                padding: 15px;
+                background: #f8f9fa;
+                border-radius: 8px;
+            }
+            
+            /* 버튼 그룹 모바일용 */
+            .plot-controls { 
+                flex-wrap: wrap; 
+                gap: 8px; 
+                justify-content: center;
+            }
+            .grade-btn,
+            .tab-btn { 
+                padding: 8px 12px; 
+                font-size: 13px;
+                min-width: 70px;
+            }
+            
+            /* 통계 그리드 */
+            .stats-grid { 
+                grid-template-columns: 1fr 1fr; 
+                gap: 8px; 
+                font-size: 12px;
+            }
+            .stats-grid .stat-item { 
+                padding: 8px; 
+                text-align: center;
+            }
+            
+            /* 대학 아이템 */
+            .university-item { 
+                padding: 15px; 
+                margin-bottom: 10px;
+            }
+            .university-item h4 { 
+                font-size: 1.1em; 
+                margin-bottom: 8px;
+            }
+            
+            /* 모집단위 섹션 */
+            .dept-section { 
+                margin-bottom: 25px; 
+                padding: 15px;
+            }
+            .dept-section h5 { 
+                font-size: 1.1em; 
+                margin-bottom: 10px;
+            }
+            
+            /* 연도별 통계 */
+            .yearly-stats-row { 
+                display: flex; 
+                flex-direction: column; 
+                gap: 5px; 
+                margin-top: 10px;
+            }
+            .yearly-item { 
+                font-size: 12px; 
+                padding: 4px 8px; 
+                background: #e9ecef; 
+                border-radius: 4px;
+            }
+            
+            /* 뷰 탭 */
+            .view-tabs { 
+                flex-direction: column; 
+                gap: 8px; 
+                margin-bottom: 15px;
+            }
+            
+            /* 패스 레이트 배지 */
+            .pass-rate { 
+                font-size: 12px; 
+                padding: 4px 8px; 
+            }
+            
+            /* 단일 레코드 카드 */
+            .single-record { 
+                text-align: center;
+                padding: 20px;
+            }
+            .single-record .result-badge { 
+                display: block; 
+                margin: 10px auto; 
+                width: fit-content;
+            }
+            .single-record .grade-info { 
+                display: block; 
+                margin: 5px 0;
+                font-size: 14px;
+            }
+            
+            /* 검색 페이지 */
+            #searchInput { 
+                font-size: 16px !important; /* iOS 줌 방지 */
+                padding: 12px !important;
+            }
+            #searchResults { 
+                margin-top: 20px;
+            }
+            
+            /* 상세 정보 숨김/표시 */
+            .details-toggle { 
+                display: block; 
+                text-align: center; 
+                margin: 10px 0; 
+                padding: 8px; 
+                background: #f8f9fa; 
+                border: 1px solid #ddd; 
+                border-radius: 4px; 
+                cursor: pointer;
+            }
+            
+            /* 오버플로우 스크롤 */
+            .table-responsive { 
+                overflow-x: auto; 
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* 더 작은 화면용 (320px 이하) */
+        @media (max-width: 480px) {
+            .container { padding: 8px; }
+            .header h1 { font-size: 1.5em; }
+            .summary-card { padding: 15px; }
+            .stat-number { font-size: 1.5em; }
+            .plot-chart { height: 200px !important; }
+            .grade-btn, .tab-btn { 
+                padding: 6px 10px; 
+                font-size: 12px; 
+                min-width: 60px;
+            }
+            .stats-grid { 
+                grid-template-columns: 1fr; 
+                gap: 6px;
+            }
+            .data-table td, .data-table th { 
+                width: 80px; 
+                padding: 6px 2px; 
+                font-size: 11px;
+            }
+            .yearly-item { font-size: 11px; }
+        }
         

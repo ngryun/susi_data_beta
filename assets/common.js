@@ -805,4 +805,168 @@
                 initDeptCompareSection();
             }
         });
+
+        // 모바일 최적화 JavaScript
+        
+        // 터치 이벤트 지원
+        function addTouchSupport() {
+            // 모든 클릭 가능한 요소에 터치 클래스 추가
+            const clickableElements = document.querySelectorAll('.summary-card, .university-item, .nav-link, .tab-btn, .grade-btn');
+            clickableElements.forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                }, {passive: true});
+                
+                element.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                }, {passive: true});
+            });
+        }
+        
+        // 모바일에서 테이블 스크롤 힌트 표시
+        function addTableScrollHints() {
+            const tables = document.querySelectorAll('.data-table');
+            tables.forEach(table => {
+                if (table.scrollWidth > table.clientWidth) {
+                    // 스크롤 힌트 추가
+                    const hint = document.createElement('div');
+                    hint.className = 'scroll-hint';
+                    hint.innerHTML = '← 좌우로 스크롤하여 더 많은 정보 보기 →';
+                    hint.style.cssText = `
+                        text-align: center; 
+                        font-size: 12px; 
+                        color: #666; 
+                        margin: 5px 0; 
+                        padding: 5px; 
+                        background: #f8f9fa; 
+                        border-radius: 4px;
+                        animation: fadeInOut 3s ease-in-out;
+                    `;
+                    table.parentNode.insertBefore(hint, table.nextSibling);
+                    
+                    // 3초 후 힌트 제거
+                    setTimeout(() => {
+                        if (hint.parentNode) {
+                            hint.parentNode.removeChild(hint);
+                        }
+                    }, 3000);
+                }
+            });
+        }
+        
+        // 모바일에서 차트 크기 조정
+        function adjustChartsForMobile() {
+            if (window.innerWidth <= 768) {
+                const charts = document.querySelectorAll('.plot-chart');
+                charts.forEach(chart => {
+                    chart.style.height = '250px';
+                    // 차트가 Plotly 차트인 경우 리사이즈
+                    if (chart.id && window.Plotly) {
+                        setTimeout(() => {
+                            try {
+                                window.Plotly.Plots.resize(chart.id);
+                            } catch (e) {
+                                console.log('Chart resize failed:', e);
+                            }
+                        }, 100);
+                    }
+                });
+            }
+        }
+        
+        // 모바일 네비게이션 토글
+        function initMobileNavigation() {
+            const sideNav = document.querySelector('.side-nav');
+            const mainContent = document.querySelector('.main-content');
+            
+            if (sideNav && window.innerWidth <= 768) {
+                // 모바일에서 네비게이션 접기/펼치기 버튼 추가
+                const toggleBtn = document.createElement('button');
+                toggleBtn.innerHTML = '📋 네비게이션 보기';
+                toggleBtn.className = 'nav-toggle-btn';
+                toggleBtn.style.cssText = `
+                    width: 100%; 
+                    padding: 10px; 
+                    margin-bottom: 10px; 
+                    background: #667eea; 
+                    color: white; 
+                    border: none; 
+                    border-radius: 6px; 
+                    font-size: 14px;
+                    cursor: pointer;
+                `;
+                
+                // 처음에는 네비게이션 숨김
+                sideNav.style.display = 'none';
+                
+                toggleBtn.addEventListener('click', function() {
+                    if (sideNav.style.display === 'none') {
+                        sideNav.style.display = 'block';
+                        toggleBtn.innerHTML = '📋 네비게이션 숨김';
+                    } else {
+                        sideNav.style.display = 'none';
+                        toggleBtn.innerHTML = '📋 네비게이션 보기';
+                    }
+                });
+                
+                if (mainContent) {
+                    mainContent.insertBefore(toggleBtn, mainContent.firstChild);
+                }
+            }
+        }
+        
+        // 화면 회전 감지 및 차트 재조정
+        function handleOrientationChange() {
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    adjustChartsForMobile();
+                    addTableScrollHints();
+                }, 500);
+            });
+        }
+        
+        // iOS Safari의 100vh 문제 해결
+        function fixiOSViewportHeight() {
+            if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+                
+                window.addEventListener('resize', () => {
+                    const vh = window.innerHeight * 0.01;
+                    document.documentElement.style.setProperty('--vh', `${vh}px`);
+                });
+            }
+        }
+        
+        // 모바일 최적화 초기화
+        function initMobileOptimizations() {
+            addTouchSupport();
+            addTableScrollHints();
+            adjustChartsForMobile();
+            initMobileNavigation();
+            handleOrientationChange();
+            fixiOSViewportHeight();
+            
+            // 스크롤 성능 최적화
+            if ('scrollBehavior' in document.documentElement.style) {
+                document.documentElement.style.scrollBehavior = 'smooth';
+            }
+        }
+        
+        // 페이지 로드 완료 후 모바일 최적화 실행
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMobileOptimizations);
+        } else {
+            initMobileOptimizations();
+        }
+        
+        // 리사이즈 이벤트 처리
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                adjustChartsForMobile();
+                addTableScrollHints();
+            }, 250);
+        });
         
