@@ -1,0 +1,715 @@
+{
+  "total_count": 118849,
+  "generation_time": "2025-08-16 13:48:57",
+  "regions": {
+    "강원": {
+      "count": 50082,
+      "universities": 12,
+      "pass_rate": 45.21384928716905
+    },
+    "경기": {
+      "count": 14365,
+      "universities": 47,
+      "pass_rate": 21.74730247128437
+    },
+    "서울": {
+      "count": 22105,
+      "universities": 45,
+      "pass_rate": 19.904998869034156
+    },
+    "대전": {
+      "count": 4272,
+      "universities": 13,
+      "pass_rate": 45.997191011235955
+    },
+    "인천": {
+      "count": 3216,
+      "universities": 7,
+      "pass_rate": 22.978855721393035
+    },
+    "경북": {
+      "count": 4485,
+      "universities": 21,
+      "pass_rate": 60.86956521739131
+    },
+    "대구": {
+      "count": 1807,
+      "universities": 4,
+      "pass_rate": 28.002213613724404
+    },
+    "충남": {
+      "count": 5962,
+      "universities": 27,
+      "pass_rate": 34.166387118416644
+    },
+    "충북": {
+      "count": 6284,
+      "universities": 17,
+      "pass_rate": 46.19669000636537
+    },
+    "광주": {
+      "count": 749,
+      "universities": 10,
+      "pass_rate": 51.802403204272366
+    },
+    "전북": {
+      "count": 1100,
+      "universities": 12,
+      "pass_rate": 43.18181818181818
+    },
+    "부산": {
+      "count": 2471,
+      "universities": 16,
+      "pass_rate": 50.829623634156206
+    },
+    "전남": {
+      "count": 371,
+      "universities": 12,
+      "pass_rate": 55.525606469002696
+    },
+    "제주": {
+      "count": 81,
+      "universities": 2,
+      "pass_rate": 37.03703703703704
+    },
+    "세종": {
+      "count": 456,
+      "universities": 2,
+      "pass_rate": 29.82456140350877
+    },
+    "경남": {
+      "count": 784,
+      "universities": 16,
+      "pass_rate": 43.494897959183675
+    },
+    "울산": {
+      "count": 259,
+      "universities": 2,
+      "pass_rate": 44.01544401544402
+    }
+  },
+  "universities": {
+    "강원대학교(춘천)": {
+      "count": 16940,
+      "pass_rate": 30.37190082644628,
+      "region": "강원"
+    },
+    "한림대학교(춘천)": {
+      "count": 6792,
+      "pass_rate": 40.19434628975265,
+      "region": "강원"
+    },
+    "국립강릉원주대학교(강릉)": {
+      "count": 5052,
+      "pass_rate": 52.65241488519399,
+      "region": "강원"
+    },
+    "가톨릭관동대학교(강릉)": {
+      "count": 3602,
+      "pass_rate": 65.51915602443087,
+      "region": "강원"
+    },
+    "상지대학교(원주)": {
+      "count": 3500,
+      "pass_rate": 61.285714285714285,
+      "region": "강원"
+    },
+    "한라대학교(원주)": {
+      "count": 3193,
+      "pass_rate": 71.9699342311306,
+      "region": "강원"
+    },
+    "경동대학교(원주문막)": {
+      "count": 3177,
+      "pass_rate": 61.00094428706326,
+      "region": "강원"
+    },
+    "국립강릉원주대학교(원주)": {
+      "count": 2718,
+      "pass_rate": 40.13980868285504,
+      "region": "강원"
+    },
+    "가천대학교(성남)": {
+      "count": 2280,
+      "pass_rate": 11.271929824561404,
+      "region": "경기"
+    },
+    "연세대학교(미래)": {
+      "count": 2148,
+      "pass_rate": 31.564245810055862,
+      "region": "강원"
+    },
+    "강원대학교(도계)": {
+      "count": 1568,
+      "pass_rate": 48.46938775510204,
+      "region": "강원"
+    },
+    "인하대학교(인천)": {
+      "count": 1411,
+      "pass_rate": 19.773210489014883,
+      "region": "인천"
+    },
+    "건국대학교(서울)": {
+      "count": 1333,
+      "pass_rate": 14.103525881470366,
+      "region": "서울"
+    },
+    "경기대학교(수원)": {
+      "count": 1300,
+      "pass_rate": 26.923076923076923,
+      "region": "경기"
+    },
+    "세명대학교(제천)": {
+      "count": 1282,
+      "pass_rate": 66.53666146645865,
+      "region": "충북"
+    },
+    "국민대학교(서울)": {
+      "count": 1230,
+      "pass_rate": 25.447154471544714,
+      "region": "서울"
+    },
+    "동국대학교(서울)": {
+      "count": 1213,
+      "pass_rate": 11.953833470733718,
+      "region": "서울"
+    },
+    "인천대학교(인천)": {
+      "count": 1165,
+      "pass_rate": 26.3519313304721,
+      "region": "인천"
+    },
+    "숭실대학교(서울)": {
+      "count": 1140,
+      "pass_rate": 17.894736842105264,
+      "region": "서울"
+    },
+    "서울과학기술대학교(서울)": {
+      "count": 1067,
+      "pass_rate": 22.211808809746955,
+      "region": "서울"
+    },
+    "중앙대학교(서울)": {
+      "count": 976,
+      "pass_rate": 16.49590163934426,
+      "region": "서울"
+    },
+    "한양대학교(ERICA)": {
+      "count": 961,
+      "pass_rate": 10.822060353798127,
+      "region": "경기"
+    },
+    "고려대학교(서울)": {
+      "count": 943,
+      "pass_rate": 15.058324496288442,
+      "region": "서울"
+    },
+    "단국대학교(죽전)": {
+      "count": 941,
+      "pass_rate": 18.91604675876727,
+      "region": "경기"
+    },
+    "강원대학교(삼척)": {
+      "count": 933,
+      "pass_rate": 78.13504823151125,
+      "region": "강원"
+    },
+    "대구대학교(경산)": {
+      "count": 932,
+      "pass_rate": 60.30042918454935,
+      "region": "경북"
+    },
+    "백석대학교(천안)": {
+      "count": 926,
+      "pass_rate": 34.66522678185745,
+      "region": "충남"
+    },
+    "세종대학교(서울)": {
+      "count": 926,
+      "pass_rate": 21.382289416846653,
+      "region": "서울"
+    },
+    "건국대학교(글로컬)": {
+      "count": 906,
+      "pass_rate": 29.911699779249446,
+      "region": "충북"
+    },
+    "충북대학교(청주)": {
+      "count": 906,
+      "pass_rate": 23.178807947019866,
+      "region": "충북"
+    },
+    "청주대학교(청주)": {
+      "count": 899,
+      "pass_rate": 47.38598442714127,
+      "region": "충북"
+    },
+    "홍익대학교(서울)": {
+      "count": 897,
+      "pass_rate": 17.94871794871795,
+      "region": "서울"
+    },
+    "서원대학교(청주)": {
+      "count": 895,
+      "pass_rate": 54.97206703910614,
+      "region": "충북"
+    },
+    "계명대학교(대구)": {
+      "count": 856,
+      "pass_rate": 39.83644859813084,
+      "region": "대구"
+    },
+    "성신여자대학교(서울)": {
+      "count": 855,
+      "pass_rate": 23.157894736842106,
+      "region": "서울"
+    },
+    "경희대학교(서울)": {
+      "count": 846,
+      "pass_rate": 19.38534278959811,
+      "region": "서울"
+    },
+    "서울여자대학교(서울)": {
+      "count": 827,
+      "pass_rate": 19.105199516324063,
+      "region": "서울"
+    },
+    "경북대학교(대구)": {
+      "count": 789,
+      "pass_rate": 14.955640050697086,
+      "region": "대구"
+    },
+    "우송대학교(대전)": {
+      "count": 770,
+      "pass_rate": 40.25974025974026,
+      "region": "대전"
+    },
+    "한양대학교(서울)": {
+      "count": 746,
+      "pass_rate": 20.777479892761395,
+      "region": "서울"
+    },
+    "광운대학교(서울)": {
+      "count": 721,
+      "pass_rate": 28.01664355062413,
+      "region": "서울"
+    },
+    "아주대학교(수원)": {
+      "count": 693,
+      "pass_rate": 16.305916305916305,
+      "region": "경기"
+    },
+    "경희대학교(국제)": {
+      "count": 690,
+      "pass_rate": 18.695652173913043,
+      "region": "경기"
+    },
+    "수원대학교(수원)": {
+      "count": 687,
+      "pass_rate": 17.321688500727802,
+      "region": "경기"
+    },
+    "가톨릭대학교(성심)": {
+      "count": 683,
+      "pass_rate": 19.1800878477306,
+      "region": "경기"
+    },
+    "대전대학교(대전)": {
+      "count": 680,
+      "pass_rate": 54.264705882352935,
+      "region": "대전"
+    },
+    "배재대학교(대전)": {
+      "count": 656,
+      "pass_rate": 63.71951219512195,
+      "region": "대전"
+    },
+    "남서울대학교(천안)": {
+      "count": 651,
+      "pass_rate": 35.63748079877112,
+      "region": "충남"
+    },
+    "단국대학교(천안)": {
+      "count": 623,
+      "pass_rate": 25.52166934189406,
+      "region": "충남"
+    },
+    "목원대학교(대전)": {
+      "count": 621,
+      "pass_rate": 55.716586151368766,
+      "region": "대전"
+    }
+  },
+  "apptypes": {
+    "기타": {
+      "count": 26,
+      "pass_rate": 46.15384615384615
+    },
+    "논술위주": {
+      "count": 2393,
+      "pass_rate": 3.0505641454241537
+    },
+    "실기/실적위주": {
+      "count": 8492,
+      "pass_rate": 21.10221384832784
+    },
+    "학생부위주(교과)": {
+      "count": 69941,
+      "pass_rate": 46.18321156403254
+    },
+    "학생부위주(종합)": {
+      "count": 37997,
+      "pass_rate": 25.833618443561335
+    }
+  },
+  "years": {
+    "2023": {
+      "total_count": 31359,
+      "pass_count": 12170,
+      "pass_rate": 38.80863547944769,
+      "universities_count": 234,
+      "regions_count": 17,
+      "apptypes": {
+        "기타": {
+          "count": 8,
+          "pass_rate": 37.5
+        },
+        "논술위주": {
+          "count": 531,
+          "pass_rate": 4.8964218455743875
+        },
+        "실기/실적위주": {
+          "count": 1887,
+          "pass_rate": 20.402755696873342
+        },
+        "학생부위주(교과)": {
+          "count": 20382,
+          "pass_rate": 45.162398194485334
+        },
+        "학생부위주(종합)": {
+          "count": 8551,
+          "pass_rate": 29.832768097298562
+        }
+      },
+      "regions": {
+        "강원": {
+          "count": 12902,
+          "universities": 12,
+          "pass_rate": 47.19423345217796
+        },
+        "경기": {
+          "count": 3491,
+          "universities": 41,
+          "pass_rate": 23.77542251503867
+        },
+        "경남": {
+          "count": 263,
+          "universities": 12,
+          "pass_rate": 44.48669201520912
+        },
+        "경북": {
+          "count": 1388,
+          "universities": 17,
+          "pass_rate": 59.798270893371765
+        },
+        "광주": {
+          "count": 250,
+          "universities": 9,
+          "pass_rate": 48.0
+        },
+        "대구": {
+          "count": 497,
+          "universities": 4,
+          "pass_rate": 28.973843058350102
+        },
+        "대전": {
+          "count": 1194,
+          "universities": 11,
+          "pass_rate": 49.83249581239531
+        },
+        "부산": {
+          "count": 777,
+          "universities": 14,
+          "pass_rate": 49.549549549549546
+        },
+        "서울": {
+          "count": 5601,
+          "universities": 44,
+          "pass_rate": 19.585788252097842
+        },
+        "세종": {
+          "count": 124,
+          "universities": 2,
+          "pass_rate": 25.0
+        },
+        "울산": {
+          "count": 76,
+          "universities": 2,
+          "pass_rate": 46.05263157894737
+        },
+        "인천": {
+          "count": 818,
+          "universities": 7,
+          "pass_rate": 22.6161369193154
+        },
+        "전남": {
+          "count": 114,
+          "universities": 9,
+          "pass_rate": 57.89473684210527
+        },
+        "전북": {
+          "count": 365,
+          "universities": 11,
+          "pass_rate": 41.369863013698634
+        },
+        "제주": {
+          "count": 33,
+          "universities": 2,
+          "pass_rate": 39.39393939393939
+        },
+        "충남": {
+          "count": 1664,
+          "universities": 23,
+          "pass_rate": 35.87740384615385
+        },
+        "충북": {
+          "count": 1802,
+          "universities": 14,
+          "pass_rate": 49.112097669256386
+        }
+      }
+    },
+    "2024": {
+      "total_count": 42931,
+      "pass_count": 16604,
+      "pass_rate": 38.67601500081526,
+      "universities_count": 237,
+      "regions_count": 17,
+      "apptypes": {
+        "기타": {
+          "count": 7,
+          "pass_rate": 71.42857142857143
+        },
+        "논술위주": {
+          "count": 885,
+          "pass_rate": 3.1638418079096042
+        },
+        "실기/실적위주": {
+          "count": 3214,
+          "pass_rate": 22.184194150591164
+        },
+        "학생부위주(교과)": {
+          "count": 23903,
+          "pass_rate": 50.40371501485169
+        },
+        "학생부위주(종합)": {
+          "count": 14922,
+          "pass_rate": 25.532770406111784
+        }
+      },
+      "regions": {
+        "강원": {
+          "count": 17488,
+          "universities": 12,
+          "pass_rate": 47.91857273559012
+        },
+        "경기": {
+          "count": 5616,
+          "universities": 41,
+          "pass_rate": 22.257834757834758
+        },
+        "경남": {
+          "count": 244,
+          "universities": 12,
+          "pass_rate": 46.72131147540984
+        },
+        "경북": {
+          "count": 1624,
+          "universities": 18,
+          "pass_rate": 61.57635467980296
+        },
+        "광주": {
+          "count": 258,
+          "universities": 10,
+          "pass_rate": 55.03875968992248
+        },
+        "대구": {
+          "count": 620,
+          "universities": 4,
+          "pass_rate": 32.903225806451616
+        },
+        "대전": {
+          "count": 1564,
+          "universities": 11,
+          "pass_rate": 48.33759590792839
+        },
+        "부산": {
+          "count": 902,
+          "universities": 14,
+          "pass_rate": 52.106430155210646
+        },
+        "서울": {
+          "count": 8021,
+          "universities": 44,
+          "pass_rate": 20.758010223164195
+        },
+        "세종": {
+          "count": 147,
+          "universities": 2,
+          "pass_rate": 34.01360544217687
+        },
+        "울산": {
+          "count": 82,
+          "universities": 2,
+          "pass_rate": 50.0
+        },
+        "인천": {
+          "count": 1178,
+          "universities": 7,
+          "pass_rate": 25.97623089983022
+        },
+        "전남": {
+          "count": 137,
+          "universities": 9,
+          "pass_rate": 59.12408759124088
+        },
+        "전북": {
+          "count": 409,
+          "universities": 11,
+          "pass_rate": 43.27628361858191
+        },
+        "제주": {
+          "count": 28,
+          "universities": 2,
+          "pass_rate": 39.285714285714285
+        },
+        "충남": {
+          "count": 2296,
+          "universities": 23,
+          "pass_rate": 36.933797909407666
+        },
+        "충북": {
+          "count": 2317,
+          "universities": 15,
+          "pass_rate": 47.86361674579197
+        }
+      }
+    },
+    "2025": {
+      "total_count": 44559,
+      "pass_count": 15220,
+      "pass_rate": 34.156960434480126,
+      "universities_count": 228,
+      "regions_count": 17,
+      "apptypes": {
+        "기타": {
+          "count": 11,
+          "pass_rate": 36.36363636363637
+        },
+        "논술위주": {
+          "count": 977,
+          "pass_rate": 1.9447287615148412
+        },
+        "실기/실적위주": {
+          "count": 3391,
+          "pass_rate": 20.46593925095842
+        },
+        "학생부위주(교과)": {
+          "count": 25656,
+          "pass_rate": 43.06205176177112
+        },
+        "학생부위주(종합)": {
+          "count": 14524,
+          "pass_rate": 23.78821261360507
+        }
+      },
+      "regions": {
+        "강원": {
+          "count": 19692,
+          "universities": 12,
+          "pass_rate": 41.51432053625838
+        },
+        "경기": {
+          "count": 5258,
+          "universities": 41,
+          "pass_rate": 19.855458349182197
+        },
+        "경남": {
+          "count": 277,
+          "universities": 12,
+          "pass_rate": 39.71119133574007
+        },
+        "경북": {
+          "count": 1473,
+          "universities": 15,
+          "pass_rate": 61.099796334012225
+        },
+        "광주": {
+          "count": 241,
+          "universities": 9,
+          "pass_rate": 52.282157676348554
+        },
+        "대구": {
+          "count": 690,
+          "universities": 4,
+          "pass_rate": 22.89855072463768
+        },
+        "대전": {
+          "count": 1514,
+          "universities": 11,
+          "pass_rate": 40.554821664464995
+        },
+        "부산": {
+          "count": 792,
+          "universities": 14,
+          "pass_rate": 50.63131313131313
+        },
+        "서울": {
+          "count": 8483,
+          "universities": 43,
+          "pass_rate": 19.3092066485913
+        },
+        "세종": {
+          "count": 185,
+          "universities": 2,
+          "pass_rate": 29.72972972972973
+        },
+        "울산": {
+          "count": 101,
+          "universities": 2,
+          "pass_rate": 37.62376237623762
+        },
+        "인천": {
+          "count": 1220,
+          "universities": 7,
+          "pass_rate": 20.327868852459016
+        },
+        "전남": {
+          "count": 120,
+          "universities": 8,
+          "pass_rate": 49.166666666666664
+        },
+        "전북": {
+          "count": 326,
+          "universities": 10,
+          "pass_rate": 45.0920245398773
+        },
+        "제주": {
+          "count": 20,
+          "universities": 1,
+          "pass_rate": 30.0
+        },
+        "충남": {
+          "count": 2002,
+          "universities": 22,
+          "pass_rate": 29.570429570429567
+        },
+        "충북": {
+          "count": 2165,
+          "universities": 15,
+          "pass_rate": 41.98614318706698
+        }
+      }
+    }
+  }
+}
