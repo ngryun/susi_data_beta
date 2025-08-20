@@ -202,6 +202,35 @@
                 padding: 10px !important; 
             }
             
+            /* Safari 전용 최적화 */
+            @supports (-webkit-appearance: none) {
+                .plot-chart {
+                    transform: translateZ(0); /* GPU 가속 활성화 */
+                    -webkit-transform: translateZ(0);
+                    will-change: auto;
+                    position: relative;
+                    overflow: hidden !important;
+                    max-width: calc(100vw - 40px) !important;
+                }
+                
+                .plot-container {
+                    -webkit-overflow-scrolling: touch;
+                    overflow-x: hidden !important;
+                    max-width: calc(100vw - 40px) !important;
+                }
+                
+                /* Safari에서 Plotly 차트 컨테이너 강제 제한 */
+                .js-plotly-plot {
+                    max-width: calc(100vw - 40px) !important;
+                    overflow: hidden !important;
+                }
+                
+                /* Safari viewport 높이 문제 해결 */
+                body.university-page {
+                    min-height: -webkit-fill-available;
+                }
+            }
+            
             /* 헤더 최적화 */
             .header { padding: 15px 0; }
             .header h1 { font-size: 1.8em; line-height: 1.2; }

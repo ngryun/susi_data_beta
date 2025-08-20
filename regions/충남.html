@@ -331,5 +331,37 @@
     </div>
     
     <script src="../assets/common.js?v=2"></script>
+    <script>
+        // URL 파라미터에서 학과명을 가져와서 자동 검색
+        function handleDepartmentFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dept = urlParams.get('dept');
+            
+            if (dept) {
+                // 모집단위 검색 섹션으로 스크롤
+                const compareSection = document.getElementById('dept-compare');
+                if (compareSection) {
+                    compareSection.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // 검색 입력창에 학과명 설정
+                const searchInput = document.getElementById('compare-dept-input');
+                if (searchInput) {
+                    searchInput.value = dept;
+                    
+                    // 자동으로 적용 버튼 클릭
+                    setTimeout(() => {
+                        const applyBtn = document.getElementById('compare-apply');
+                        if (applyBtn) {
+                            applyBtn.click();
+                        }
+                    }, 500);
+                }
+            }
+        }
+        
+        // 페이지 로드 시 URL 파라미터 처리
+        document.addEventListener('DOMContentLoaded', handleDepartmentFromURL);
+    </script>
 </body>
 </html>

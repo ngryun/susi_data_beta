@@ -141,7 +141,7 @@
 
             function buildQuartileTable(rows, gradeKey){
                 var labels = ['합격','충원합격','불합격'];
-                var html = '<table class="small-table"><thead><tr><th></th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th></tr></thead><tbody>';
+                var html = '<table class="small-table"><thead><tr><th></th><th>최고</th><th>25%</th><th>50%</th><th>70%</th><th>최저</th></tr></thead><tbody>';
                 labels.forEach(function(lbl){
                     // 숫자형이면서 유한한 값만 사용 (NaN/Infinity 제거)
                     var vals = rows
@@ -155,7 +155,7 @@
                         var mx = Math.max.apply(null, vals);
                         var q1 = quantile(vals, 0.25);
                         var md = quantile(vals, 0.5);
-                        var q3 = quantile(vals, 0.75);
+                        var q3 = quantile(vals, 0.70);
                         function f(v){ return (typeof v==='number' && isFinite(v)) ? v.toFixed(2) : '-'; }
                         html += '<tr><td>'+lbl+'</td><td>'+f(mn)+'</td><td>'+f(q1)+'</td><td>'+f(md)+'</td><td>'+f(q3)+'</td><td>'+f(mx)+'</td></tr>';
                     }
@@ -249,6 +249,7 @@
                         document.getElementById(convTableId).innerHTML = buildQuartileTable(yrows, 'conv_grade');
                         document.getElementById(allTableId).style.display = (compareGradeType==='all_subj') ? '' : 'none';
                         document.getElementById(convTableId).style.display = (compareGradeType==='conv') ? '' : 'none';
+                        // 박스플롯 생성
                         // 박스플롯 생성
                         var gradeKey = (compareGradeType === 'conv') ? 'conv_grade' : 'all_subj_grade';
                         var traces = [];
@@ -854,39 +855,60 @@
             });
         }
         
-        // 모바일에서 차트 크기 조정 (개선된 버전)
+        // 모바일에서 차트 크기 조정 (Safari 최적화 포함)
         function adjustChartsForMobile() {
             if (window.innerWidth <= 768) {
+                const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                const isIOSSafari = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                 const charts = document.querySelectorAll('.plot-chart');
+                
                 charts.forEach(chart => {
-                    // Plotly 차트가 아닌 경우에만 수동으로 높이 설정
                     const isPlotlyChart = chart.id && chart.id.startsWith('plot-') && window.Plotly;
                     
                     if (!isPlotlyChart) {
                         // Chart.js나 다른 차트들만 수동 크기 조정
                         chart.style.height = window.innerWidth <= 480 ? '200px' : '250px';
                     } else {
-                        // Plotly 차트는 CSS가 처리하도록 함
-                        // 단지 컨테이너 크기만 확인
-                        if (chart.offsetWidth > window.innerWidth - 40) {
-                            chart.style.width = '100%';
+                        // Safari 전용 처리
+                        if (isSafari || isIOSSafari) {
+                            // Safari에서는 더 엄격한 크기 제한
+                            const maxWidth = Math.min(window.innerWidth - 50, 350);
+                            chart.style.maxWidth = maxWidth + 'px';
+                            chart.style.width = maxWidth + 'px';
+                            chart.style.overflow = 'hidden';
+                            
+                            // Safari에서 Plotly 컨테이너 직접 제어
+                            const plotlyDiv = chart.querySelector('.js-plotly-plot');
+                            if (plotlyDiv) {
+                                plotlyDiv.style.maxWidth = maxWidth + 'px';
+                                plotlyDiv.style.width = maxWidth + 'px';
+                                plotlyDiv.style.overflow = 'hidden';
+                            }
+                        } else {
+                            // 다른 브라우저에서는 기존 방식
+                            if (chart.offsetWidth > window.innerWidth - 40) {
+                                chart.style.width = '100%';
+                            }
                         }
                         
-                        // Plotly 차트가 이미 초기화된 경우에만 리사이즈
-                        // 리사이즈 무한루프 방지를 위해 조건부 실행
+                        // Plotly 차트 리사이즈 (Safari에서는 더 신중하게)
                         if (window.Plotly && chart._fullLayout) {
+                            const delay = (isSafari || isIOSSafari) ? 500 : 200; // Safari는 더 긴 지연
                             setTimeout(() => {
                                 try {
-                                    // relayout을 사용하여 차트 크기 고정
+                                    const targetWidth = (isSafari || isIOSSafari) ? 
+                                        Math.min(window.innerWidth - 50, 350) : 
+                                        chart.offsetWidth;
+                                    
                                     window.Plotly.relayout(chart.id, {
                                         'autosize': false,
-                                        'width': chart.offsetWidth,
+                                        'width': targetWidth,
                                         'height': window.innerWidth <= 480 ? 200 : 250
                                     });
                                 } catch (e) {
                                     console.log('Plotly relayout failed:', e);
                                 }
-                            }, 200);
+                            }, delay);
                         }
                     }
                 });
@@ -944,15 +966,46 @@
             });
         }
         
-        // iOS Safari의 100vh 문제 해결
+        // iOS Safari의 100vh 문제 해결 및 Plotly 강제 리미터
         function fixiOSViewportHeight() {
-            if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            const isIOSSafari = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            
+            if (isIOSSafari) {
                 const vh = window.innerHeight * 0.01;
                 document.documentElement.style.setProperty('--vh', `${vh}px`);
                 
                 window.addEventListener('resize', () => {
                     const vh = window.innerHeight * 0.01;
                     document.documentElement.style.setProperty('--vh', `${vh}px`);
+                });
+            }
+            
+            // Safari 전용 Plotly 차트 오버플로우 감시
+            if (isSafari || isIOSSafari) {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'childList') {
+                            // 새로 추가된 Plotly 차트 감지
+                            mutation.addedNodes.forEach(function(node) {
+                                if (node.nodeType === 1 && node.classList && node.classList.contains('js-plotly-plot')) {
+                                    // Safari에서 즉시 크기 제한 적용
+                                    setTimeout(() => {
+                                        const maxWidth = Math.min(window.innerWidth - 50, 350);
+                                        node.style.maxWidth = maxWidth + 'px';
+                                        node.style.width = maxWidth + 'px';
+                                        node.style.overflow = 'hidden';
+                                        node.parentElement.style.overflow = 'hidden';
+                                    }, 100);
+                                }
+                            });
+                        }
+                    });
+                });
+                
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
                 });
             }
         }
